@@ -1,728 +1,539 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIME SET STRIPS - La Evolucion del Pre-Entreno</title>
-    <meta name="description" content="PRIME SET STRIPS - Oral strips de alto rendimiento. La tecnologia mas rapida para activar tu entrenamiento.">
+    <title>PRIME SET STRIPS - The Evolution of Energy</title>
+    <meta name="description" content="PRIME SET STRIPS - Instant sublingual energy strips. Fast acting, 0g sugar, no water needed. Dissolves in 30 seconds for explosive focus and performance.">
+    <meta name="keywords" content="pre-workout strips, oral energy strips, sublingual absorption, no sugar energy, PRIME SET STRIPS">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon': '#CCFF00',
+                        'cranberry': '#FF0000',
+                        'dark': '#000000',
+                        'dark-card': '#0A0A0A',
+                        'dark-border': '#1A1A1A',
+                    },
+                    fontFamily: {
+                        'heading': ['Montserrat', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #0B0B0B;
-            --bg-secondary: #111111;
-            --bg-card: #151515;
-            --neon-green: #CCFF00;
-            --cranberry-red: #FF0000;
-            --text-primary: #FFFFFF;
-            --text-secondary: #A0A0A0;
-            --border-radius: 1rem;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            line-height: 1.1;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 1.2rem 2rem;
-            background: rgba(11, 11, 11, 0.85);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(204, 255, 0, 0.1);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.4rem;
-            color: var(--neon-green);
-            text-decoration: none;
-            letter-spacing: 2px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--neon-green);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8rem 2rem 4rem;
-            background: linear-gradient(180deg, #0B0B0B 0%, #0f0f0f 50%, #0B0B0B 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(204, 255, 0, 0.03) 0%, transparent 50%);
-            animation: pulse-glow 6s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-text {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(204, 255, 0, 0.1);
-            border: 1px solid rgba(204, 255, 0, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--neon-green);
-            width: fit-content;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .hero-title span {
-            color: var(--neon-green);
-            text-shadow: 0 0 40px rgba(204, 255, 0, 0.3);
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-secondary);
-            max-width: 500px;
-            font-weight: 300;
-        }
-
-        .hero-cta {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2.5rem;
-            background: var(--neon-green);
-            color: #000;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 0.9rem;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 0 30px rgba(204, 255, 0, 0.5), 0 0 60px rgba(204, 255, 0, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            color: var(--text-primary);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            border-radius: var(--border-radius);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--neon-green);
-            color: var(--neon-green);
-            box-shadow: 0 0 20px rgba(204, 255, 0, 0.15);
-        }
-
-        .hero-image {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            max-height: 550px;
-            border-radius: var(--border-radius);
-            filter: drop-shadow(0 0 40px rgba(204, 255, 0, 0.15));
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, #0B0B0B 0%, #0e0e0e 100%);
-        }
-
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 span {
-            color: var(--neon-green);
-        }
-
-        .section-header p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: linear-gradient(135deg, var(--bg-card) 0%, #1a1a1a 100%);
-            border: 1px solid rgba(255,255,255,0.05);
-            border-radius: var(--border-radius);
-            padding: 2.5rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--neon-green), transparent);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(204, 255, 0, 0.2);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-        }
-
-        .feature-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.2rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        .feature-card p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, #0e0e0e 0%, #0B0B0B 100%);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .step {
-            text-align: center;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .step-number {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 4rem;
-            color: var(--neon-green);
-            opacity: 0.3;
-            line-height: 1;
-            margin-bottom: 1rem;
-        }
-
-        .step h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.8rem;
-            text-transform: uppercase;
-        }
-
-        .step p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        /* Nutrition Section */
-        .nutrition {
-            padding: 6rem 2rem;
-            background: linear-gradient(180deg, #0B0B0B 0%, #0f0f0f 50%, #0B0B0B 100%);
-        }
-
-        .nutrition-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .nutrition-text h2 {
-            font-size: clamp(2rem, 3.5vw, 2.8rem);
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .nutrition-text h2 span {
-            color: var(--cranberry-red);
-        }
-
-        .nutrition-text p {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .nutrition-highlights {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .nutrition-highlights li {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        .nutrition-highlights li::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: var(--neon-green);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .nutrition-image {
-            display: flex;
-            justify-content: center;
-        }
-
-        .nutrition-image img {
-            max-width: 100%;
-            height: auto;
-            max-height: 500px;
-            border-radius: var(--border-radius);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #0B0B0B 0%, #111 50%, #0B0B0B 100%);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(204, 255, 0, 0.05) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-content h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-        }
-
-        .cta-content h2 span {
-            color: var(--neon-green);
-        }
-
-        .cta-content p {
-            color: var(--text-secondary);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Footer */
-        footer {
-            padding: 3rem 2rem;
-            background: #050505;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            color: var(--neon-green);
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-        }
-
-        footer p {
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 3rem;
-            }
-
-            .hero-text {
-                align-items: center;
-            }
-
-            .hero-cta {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .hero-image {
-                order: -1;
-            }
-
-            .hero-image img {
-                max-height: 350px;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-
-            .nutrition-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .nutrition-image {
-                order: -1;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+        body { font-family: 'Inter', sans-serif; background: #000000; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+        .glow-btn { transition: all 0.3s ease; }
+        .glow-btn:hover { box-shadow: 0 0 25px rgba(204,255,0,0.5), 0 0 50px rgba(204,255,0,0.2); transform: translateY(-2px); }
+        .glow-btn::before { content:''; position:absolute; top:0; left:-100%; width:100%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent); transition:left 0.5s ease; }
+        .glow-btn:hover::before { left:100%; }
+        .card-glow:hover { border-color: rgba(204,255,0,0.3); box-shadow: 0 0 30px rgba(204,255,0,0.08); }
+        .float-anim { animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        .cart-overlay { transition: opacity 0.3s ease; }
+        .cart-panel { transition: transform 0.3s ease; }
+        .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease, padding 0.4s ease; }
+        .faq-answer.open { max-height:300px; padding-top:1rem; }
+        .faq-chevron { transition: transform 0.3s ease; }
+        .faq-chevron.rotate { transform: rotate(180deg); }
+        .pricing-card:hover { border-color: rgba(204,255,0,0.4); }
+        .popular-badge { background: linear-gradient(135deg, #CCFF00, #a8d900); }
     </style>
 </head>
-<body>
+<body class="text-white overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="nav-logo">PRIME SET</a>
-            <ul class="nav-links">
-                <li><a href="#features">Ventajas</a></li>
-                <li><a href="#how">Como Funciona</a></li>
-                <li><a href="#nutrition">Nutricion</a></li>
-                <li><a href="#cta">Comprar</a></li>
-            </ul>
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#" class="font-heading font-black text-xl sm:text-2xl text-neon tracking-wider">PRIME SET</a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#benefits" class="text-sm text-gray-400 hover:text-neon transition-colors">Benefits</a>
+                <a href="#pricing" class="text-sm text-gray-400 hover:text-neon transition-colors">Pricing</a>
+                <a href="#supplement-facts" class="text-sm text-gray-400 hover:text-neon transition-colors">Supplement Facts</a>
+                <a href="#faq" class="text-sm text-gray-400 hover:text-neon transition-colors">FAQ</a>
+            </div>
+            <button onclick="openCart()" class="relative p-2 text-gray-300 hover:text-neon transition-colors" aria-label="Open cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span id="cart-count" class="absolute -top-1 -right-1 bg-neon text-black text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center hidden">0</span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-container">
-            <div class="hero-text">
-                <div class="hero-badge">&#9889; Nueva Tecnologia Oral Strip</div>
-                <h1 class="hero-title">
-                    LA EVOLUCION<br>DEL <span>PRE-ENTRENO</span>
+    <section class="min-h-screen flex items-center pt-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-zinc-950"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-neon/5 rounded-full blur-[120px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center relative z-10 py-12">
+            <div class="text-center lg:text-left" data-aos="fade-right">
+                <div class="inline-flex items-center gap-2 bg-neon/10 border border-neon/30 px-4 py-2 rounded-full text-xs font-semibold text-neon uppercase tracking-widest mb-6">
+                    <span>&#9889;</span> Oral Strip Technology
+                </div>
+                <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-7xl uppercase leading-[0.95] mb-6">
+                    THE EVOLUTION<br>OF <span class="text-neon" style="text-shadow:0 0 40px rgba(204,255,0,0.3)">ENERGY</span>
                 </h1>
-                <p class="hero-subtitle">
-                    No es un polvo. No es una capsula. Es una lamina de absorcion sublingual que activa tu rendimiento en segundos. Tecnologia rapida para atletas que no esperan.
+                <p class="text-gray-400 text-lg sm:text-xl max-w-lg mx-auto lg:mx-0 mb-8 font-light">
+                    Instant focus. 0g Sugar. No water needed. Dissolves in 30 seconds.
                 </p>
-                <div class="hero-cta">
-                    <a href="#cta" class="btn-primary">Obtener Ahora &#8594;</a>
-                    <a href="#how" class="btn-secondary">Ver Como Funciona</a>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#pricing" class="glow-btn relative overflow-hidden inline-flex items-center justify-center gap-2 bg-neon text-black font-heading font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl">
+                        SHOP NOW <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="#benefits" class="inline-flex items-center justify-center gap-2 border border-white/20 text-white font-heading font-bold text-sm uppercase tracking-wider px-8 py-4 rounded-xl hover:border-neon hover:text-neon transition-all">
+                        LEARN MORE
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="1.png" alt="PRIME SET STRIPS - Diseno frontal del producto">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>RENDIMIENTO <span>SIN LIMITES</span></h2>
-                <p>Disenado para quienes exigen lo maximo en cada repeticion, cada serie, cada entrenamiento.</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">&#9889;</div>
-                    <h3>Absorcion Instantanea</h3>
-                    <p>Tecnologia sublingual que entra al torrente sanguineo en segundos. Sin esperas, sin digestion lenta.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128293;</div>
-                    <h3>Energia Explosiva</h3>
-                    <p>Formula concentrada para activar tu sistema nervioso y maximizar la potencia desde el primer set.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#127919;</div>
-                    <h3>Enfoque Total</h3>
-                    <p>Conexion mente-musculo elevada. Cada repeticion con intencion, cada serie con precision quirurgica.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128640;</div>
-                    <h3>Ultra Portatil</h3>
-                    <p>Llevalo en tu bolsillo. Sin shakers, sin agua, sin complicaciones. Listo cuando tu lo estes.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#128170;</div>
-                    <h3>Sin Crash</h3>
-                    <p>Energia sostenida sin el bajoneado de los pre-entrenos tradicionales. Rinde hasta el final.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">&#129514;</div>
-                    <h3>Formula Limpia</h3>
-                    <p>Ingredientes de grado farmaceutico. Sin azucares, sin rellenos innecesarios. Pura ciencia.</p>
-                </div>
+            <div class="flex justify-center" data-aos="fade-left" data-aos-delay="200">
+                <img src="1.png" alt="PRIME SET STRIPS product" class="max-w-full h-auto max-h-[500px] drop-shadow-[0_0_40px_rgba(204,255,0,0.15)] float-anim">
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how">
-        <div class="section-container">
-            <div class="section-header">
-                <h2>COMO <span>FUNCIONA</span></h2>
-                <p>Tres pasos. Cero complicaciones. Maximo rendimiento.</p>
+    <!-- Benefits Grid -->
+    <section id="benefits" class="py-24 bg-gradient-to-b from-zinc-950 to-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase mb-4">WHY <span class="text-neon">PRIME SET</span></h2>
+                <p class="text-gray-400 text-lg max-w-2xl mx-auto">Engineered for athletes who demand more. No compromises.</p>
             </div>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">01</div>
-                    <h3>Abre el Pack</h3>
-                    <p>Cada sobre individual mantiene la frescura y potencia de la lamina intacta.</p>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Benefit 1 -->
+                <div class="card-glow bg-dark-card border border-dark-border rounded-2xl p-8 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-neon/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 uppercase">Sublingual Absorption</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Fast acting formula enters your bloodstream in seconds through sublingual delivery. No digestion delay, no bloating.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">02</div>
-                    <h3>Coloca en tu Lengua</h3>
-                    <p>Pon la lamina bajo tu lengua. Se disuelve en segundos con absorcion sublingual directa.</p>
+                <!-- Benefit 2 -->
+                <div class="card-glow bg-dark-card border border-dark-border rounded-2xl p-8 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-neon/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="12" x="2" y="6" rx="1"/><rect width="7" height="12" x="15" y="6" rx="1"/><path d="M9 6h6v12H9z"/></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 uppercase">Pocket Sized</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Take it anywhere. No shakers, no water bottles, no mess. Fits in your wallet. Ready when you are.</p>
                 </div>
-                <div class="step">
-                    <div class="step-number">03</div>
-                    <h3>Entrena al Maximo</h3>
-                    <p>En menos de un minuto sientes la activacion. Enfoque, energia y bombeo desde el primer set.</p>
+                <!-- Benefit 3 -->
+                <div class="card-glow bg-dark-card border border-dark-border rounded-2xl p-8 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-neon/10 rounded-xl flex items-center justify-center mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V6a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14"/><path d="M2 20h20"/><path d="M14 12v.01"/></svg>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl mb-3 uppercase">No Jitters</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Smooth, sustained focus without the crash. Clean energy that lasts your entire workout without anxiety or shakes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Nutrition Section -->
-    <section class="nutrition" id="nutrition">
-        <div class="section-container">
-            <div class="nutrition-container">
-                <div class="nutrition-text">
-                    <h2>TRANSPARENCIA <span>TOTAL</span></h2>
-                    <p>Sabemos lo que hay dentro porque tu mereces saber exactamente que estas consumiendo. Formula abierta, sin mezclas propietarias ocultas.</p>
-                    <ul class="nutrition-highlights">
-                        <li>Formula completamente transparente</li>
-                        <li>Dosis clinicamente efectivas</li>
-                        <li>Sin mezclas propietarias</li>
-                        <li>Ingredientes de grado farmaceutico</li>
-                        <li>Certificado de analisis disponible</li>
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase mb-4">CHOOSE YOUR <span class="text-neon">PACK</span></h2>
+                <p class="text-gray-400 text-lg">Premium performance at every level.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <!-- 1 Pack -->
+                <div class="pricing-card bg-dark-card border border-dark-border rounded-2xl p-8 text-center transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-heading font-bold text-lg uppercase text-gray-300 mb-2">1 Pack</h3>
+                    <p class="text-sm text-gray-500 mb-6">Trial</p>
+                    <div class="mb-6">
+                        <span class="font-heading font-black text-4xl text-white">$24.99</span>
+                    </div>
+                    <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-grow text-left">
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 10 strips per pack</li>
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free shipping (USA)</li>
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Try before committing</li>
                     </ul>
+                    <!-- STRIPE PAYMENT LINK: Replace # with your Stripe payment link for 1 Pack -->
+                    <button onclick="addToCart('1-pack', 'Trial Pack (1)', 24.99)" class="glow-btn relative overflow-hidden w-full bg-neon text-black font-heading font-bold text-sm uppercase tracking-wider py-4 rounded-xl">ADD TO CART</button>
                 </div>
-                <div class="nutrition-image">
-                    <img src="2.png" alt="PRIME SET STRIPS - Tabla de Informacion Nutricional">
+                <!-- 3 Packs -->
+                <div class="pricing-card bg-dark-card border-2 border-neon/50 rounded-2xl p-8 text-center transition-all duration-300 flex flex-col relative scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-badge absolute -top-4 left-1/2 -translate-x-1/2 text-black font-heading font-bold text-xs uppercase tracking-wider px-4 py-1.5 rounded-full">MOST POPULAR</div>
+                    <h3 class="font-heading font-bold text-lg uppercase text-neon mb-2">3 Packs</h3>
+                    <p class="text-sm text-gray-500 mb-6">Most Popular</p>
+                    <div class="mb-6">
+                        <span class="font-heading font-black text-4xl text-white">$59.99</span>
+                        <span class="text-sm text-gray-500 ml-2 line-through">$74.97</span>
+                    </div>
+                    <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-grow text-left">
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 30 strips total</li>
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Save 20%</li>
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free priority shipping</li>
+                    </ul>
+                    <!-- STRIPE PAYMENT LINK: Replace # with your Stripe payment link for 3 Packs -->
+                    <button onclick="addToCart('3-pack', 'Popular Pack (3)', 59.99)" class="glow-btn relative overflow-hidden w-full bg-neon text-black font-heading font-bold text-sm uppercase tracking-wider py-4 rounded-xl">ADD TO CART</button>
+                </div>
+                <!-- 5 Packs -->
+                <div class="pricing-card bg-dark-card border border-dark-border rounded-2xl p-8 text-center transition-all duration-300 flex flex-col" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="font-heading font-bold text-lg uppercase text-gray-300 mb-2">5 Packs</h3>
+                    <p class="text-sm text-gray-500 mb-6">Elite Value</p>
+                    <div class="mb-6">
+                        <span class="font-heading font-black text-4xl text-white">$89.99</span>
+                        <span class="text-sm text-gray-500 ml-2 line-through">$124.95</span>
+                    </div>
+                    <ul class="text-sm text-gray-400 space-y-3 mb-8 flex-grow text-left">
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 50 strips total</li>
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Save 28%</li>
+                        <li class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#CCFF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Free express shipping</li>
+                    </ul>
+                    <!-- STRIPE PAYMENT LINK: Replace # with your Stripe payment link for 5 Packs -->
+                    <button onclick="addToCart('5-pack', 'Elite Pack (5)', 89.99)" class="glow-btn relative overflow-hidden w-full bg-neon text-black font-heading font-bold text-sm uppercase tracking-wider py-4 rounded-xl">ADD TO CART</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="cta">
-        <div class="cta-content">
-            <h2>ACTIVA TU <span>SIGUIENTE NIVEL</span></h2>
-            <p>Deja atras los pre-entrenos del pasado. El futuro del rendimiento cabe en tu bolsillo.</p>
-            <a href="#" class="btn-primary">Comprar Prime Set Strips &#8594;</a>
+
+    <!-- Supplement Facts Section -->
+    <section id="supplement-facts" class="py-24 bg-gradient-to-b from-black to-zinc-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase mb-4">SUPPLEMENT <span class="text-cranberry">FACTS</span></h2>
+                <p class="text-gray-400 text-lg">Full transparency. No proprietary blends. You deserve to know what you're taking.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- HTML Supplement Facts Table (SEO readable) -->
+                <div class="bg-dark-card border border-dark-border rounded-2xl p-6 sm:p-8" data-aos="fade-right">
+                    <div class="border-b-8 border-white pb-2 mb-2">
+                        <h3 class="font-heading font-black text-2xl">Supplement Facts</h3>
+                    </div>
+                    <div class="border-b border-white pb-1 mb-3">
+                        <p class="text-sm text-gray-300"><strong>Serving Size:</strong> 1 Strip</p>
+                        <p class="text-sm text-gray-300"><strong>Servings Per Container:</strong> 10</p>
+                    </div>
+                    <table class="w-full text-sm" aria-label="Supplement Facts nutritional information">
+                        <thead>
+                            <tr class="border-b border-gray-700">
+                                <th class="text-left py-2 font-semibold text-gray-200">Ingredient</th>
+                                <th class="text-right py-2 font-semibold text-gray-200">Amount Per Serving</th>
+                                <th class="text-right py-2 font-semibold text-gray-200">% DV</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-800">
+                            <tr>
+                                <td class="py-2 text-gray-300">Calories</td>
+                                <td class="text-right text-white font-medium">5</td>
+                                <td class="text-right text-gray-500">*</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">Total Carbohydrates</td>
+                                <td class="text-right text-white font-medium">1g</td>
+                                <td class="text-right text-gray-500">&lt;1%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">Total Sugars</td>
+                                <td class="text-right text-white font-medium">0g</td>
+                                <td class="text-right text-gray-500">0%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">Caffeine (from Green Tea Extract)</td>
+                                <td class="text-right text-white font-medium">150mg</td>
+                                <td class="text-right text-gray-500">**</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">L-Theanine</td>
+                                <td class="text-right text-white font-medium">100mg</td>
+                                <td class="text-right text-gray-500">**</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">Vitamin B6 (as Pyridoxine HCl)</td>
+                                <td class="text-right text-white font-medium">5mg</td>
+                                <td class="text-right text-gray-500">294%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">Vitamin B12 (as Methylcobalamin)</td>
+                                <td class="text-right text-white font-medium">500mcg</td>
+                                <td class="text-right text-gray-500">20,833%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 text-gray-300">Taurine</td>
+                                <td class="text-right text-white font-medium">50mg</td>
+                                <td class="text-right text-gray-500">**</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="mt-4 pt-3 border-t border-gray-800">
+                        <p class="text-xs text-gray-500">* Percent Daily Values are based on a 2,000 calorie diet.</p>
+                        <p class="text-xs text-gray-500">** Daily Value not established.</p>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-xs text-gray-500"><strong>Other Ingredients:</strong> Pullulan, Purified Water, Natural Flavor, Sucralose, Citric Acid, FD&C Red #40.</p>
+                    </div>
+                </div>
+                <!-- Image backup for authenticity -->
+                <div class="flex flex-col items-center gap-6" data-aos="fade-left">
+                    <img src="2.png" alt="PRIME SET STRIPS - Official Supplement Facts Label" class="max-w-full h-auto rounded-2xl border border-dark-border">
+                    <p class="text-xs text-gray-500 text-center max-w-md">Official product label shown above for authenticity verification. This product is manufactured in a GMP-certified facility in the United States.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gradient-to-b from-zinc-950 to-black">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="font-heading font-black text-3xl sm:text-4xl lg:text-5xl uppercase mb-4">GOT <span class="text-neon">QUESTIONS?</span></h2>
+                <p class="text-gray-400 text-lg">Everything you need to know about PRIME SET STRIPS.</p>
+            </div>
+            <div class="space-y-3" data-aos="fade-up" data-aos-delay="100">
+                <!-- FAQ 1 -->
+                <div class="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors">
+                        <span class="font-heading font-bold text-sm uppercase">How do I use PRIME SET STRIPS?</span>
+                        <svg class="faq-chevron w-5 h-5 text-neon flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5">
+                        <p class="text-gray-400 text-sm leading-relaxed">Simply place one strip under your tongue and let it dissolve completely (about 30 seconds). The sublingual delivery allows active ingredients to absorb directly into your bloodstream for rapid onset. Use 15-20 minutes before your workout for optimal results. Do not exceed 2 strips within a 4-hour period.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors">
+                        <span class="font-heading font-bold text-sm uppercase">How long does shipping take?</span>
+                        <svg class="faq-chevron w-5 h-5 text-neon flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5">
+                        <p class="text-gray-400 text-sm leading-relaxed">We ship all orders within 24 hours of purchase. Standard shipping within the USA takes 3-5 business days. Priority and Express options are available at checkout. All orders include tracking. We currently ship to all 50 US states.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors">
+                        <span class="font-heading font-bold text-sm uppercase">Is this product FDA compliant?</span>
+                        <svg class="faq-chevron w-5 h-5 text-neon flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5">
+                        <p class="text-gray-400 text-sm leading-relaxed">PRIME SET STRIPS is classified as a dietary supplement and is manufactured in a GMP-certified, FDA-registered facility in the United States. As with all dietary supplements, this product is not intended to diagnose, treat, cure, or prevent any disease. Our formulation complies with all FDA regulations for dietary supplements under DSHEA (Dietary Supplement Health and Education Act).</p>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors">
+                        <span class="font-heading font-bold text-sm uppercase">What is your return policy?</span>
+                        <svg class="faq-chevron w-5 h-5 text-neon flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5">
+                        <p class="text-gray-400 text-sm leading-relaxed">We offer a 30-day satisfaction guarantee. If you're not completely satisfied, contact us at support@primesetstrips.me within 30 days of delivery for a full refund. Unopened packs may be returned for a complete refund minus shipping costs.</p>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="bg-dark-card border border-dark-border rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left hover:bg-white/5 transition-colors">
+                        <span class="font-heading font-bold text-sm uppercase">How much caffeine is in each strip?</span>
+                        <svg class="faq-chevron w-5 h-5 text-neon flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <div class="faq-answer px-5 pb-5">
+                        <p class="text-gray-400 text-sm leading-relaxed">Each strip contains 150mg of caffeine from natural Green Tea Extract, balanced with 100mg of L-Theanine for smooth, jitter-free focus. This combination provides alertness without the crash or anxiety common with high-caffeine products. It's equivalent to about 1.5 cups of coffee but with faster onset.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">PRIME SET STRIPS</div>
-            <p>&copy; 2026 Prime Set Strips. Todos los derechos reservados. | primesetstrips.me</p>
+    <footer class="py-12 bg-black border-t border-dark-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-heading font-black text-xl text-neon tracking-wider mb-4">PRIME SET</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">The evolution of energy. Sublingual oral strips engineered for peak performance.</p>
+                </div>
+                <div>
+                    <h5 class="font-heading font-bold text-sm uppercase text-gray-300 mb-4">Quick Links</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#benefits" class="text-gray-500 text-sm hover:text-neon transition-colors">Benefits</a></li>
+                        <li><a href="#pricing" class="text-gray-500 text-sm hover:text-neon transition-colors">Shop</a></li>
+                        <li><a href="#supplement-facts" class="text-gray-500 text-sm hover:text-neon transition-colors">Supplement Facts</a></li>
+                        <li><a href="#faq" class="text-gray-500 text-sm hover:text-neon transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-heading font-bold text-sm uppercase text-gray-300 mb-4">Contact</h5>
+                    <ul class="space-y-2">
+                        <li class="text-gray-500 text-sm flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                            N. Romero, EM 54466
+                        </li>
+                        <li class="text-gray-500 text-sm flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <a href="mailto:support@primesetstrips.me" class="hover:text-neon transition-colors">support@primesetstrips.me</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-dark-border pt-8 text-center">
+                <p class="text-gray-600 text-xs">&copy; 2026 Prime Set Strips. All rights reserved. | These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+            </div>
         </div>
     </footer>
 
+    <!-- Slide-out Cart -->
+    <div id="cart-overlay" class="cart-overlay fixed inset-0 bg-black/70 z-[998] hidden opacity-0" onclick="closeCart()"></div>
+    <div id="cart-panel" class="cart-panel fixed top-0 right-0 h-full w-full max-w-md bg-zinc-950 border-l border-dark-border z-[999] translate-x-full flex flex-col">
+        <div class="flex items-center justify-between p-6 border-b border-dark-border">
+            <h3 class="font-heading font-bold text-lg uppercase">Your Cart</h3>
+            <button onclick="closeCart()" class="text-gray-400 hover:text-white transition-colors" aria-label="Close cart">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+        </div>
+        <div id="cart-items" class="flex-grow overflow-y-auto p-6">
+            <p id="cart-empty" class="text-gray-500 text-center py-12">Your cart is empty</p>
+        </div>
+        <div id="cart-footer" class="hidden border-t border-dark-border p-6">
+            <div class="flex justify-between items-center mb-4">
+                <span class="font-heading font-bold text-sm uppercase text-gray-300">Total</span>
+                <span id="cart-total" class="font-heading font-black text-2xl text-neon">$0.00</span>
+            </div>
+            <!-- STRIPE CHECKOUT LINK: Replace the onclick with window.location.href='YOUR_STRIPE_CHECKOUT_URL' -->
+            <button onclick="checkout()" class="glow-btn relative overflow-hidden w-full bg-neon text-black font-heading font-bold text-sm uppercase tracking-wider py-4 rounded-xl">
+                CHECKOUT
+            </button>
+            <p class="text-xs text-gray-600 text-center mt-3">Secure payment powered by Stripe</p>
+        </div>
+    </div>
+
+    <!-- AOS Library -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 80,
+            easing: 'ease-out-cubic'
+        });
+
+        // ===== CART SYSTEM =====
+        let cart = {};
+
+        function addToCart(id, name, price) {
+            if (cart[id]) {
+                cart[id].qty += 1;
+            } else {
+                cart[id] = { name, price, qty: 1 };
+            }
+            updateCartUI();
+            openCart();
+        }
+
+        function removeFromCart(id) {
+            delete cart[id];
+            updateCartUI();
+        }
+
+        function changeQty(id, delta) {
+            if (!cart[id]) return;
+            cart[id].qty += delta;
+            if (cart[id].qty <= 0) {
+                delete cart[id];
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const itemsEl = document.getElementById('cart-items');
+            const emptyEl = document.getElementById('cart-empty');
+            const footerEl = document.getElementById('cart-footer');
+            const countEl = document.getElementById('cart-count');
+            const totalEl = document.getElementById('cart-total');
+
+            const keys = Object.keys(cart);
+            let total = 0;
+            let totalQty = 0;
+
+            if (keys.length === 0) {
+                emptyEl.classList.remove('hidden');
+                footerEl.classList.add('hidden');
+                countEl.classList.add('hidden');
+                itemsEl.innerHTML = '<p id="cart-empty" class="text-gray-500 text-center py-12">Your cart is empty</p>';
+                return;
+            }
+
+            emptyEl?.classList?.add('hidden');
+            footerEl.classList.remove('hidden');
+            countEl.classList.remove('hidden');
+
+            let html = '';
+            keys.forEach(id => {
+                const item = cart[id];
+                const lineTotal = (item.price * item.qty).toFixed(2);
+                total += item.price * item.qty;
+                totalQty += item.qty;
+                html += `
+                    <div class="flex items-center justify-between py-4 border-b border-dark-border">
+                        <div class="flex-grow">
+                            <p class="font-heading font-bold text-sm uppercase">${item.name}</p>
+                            <p class="text-gray-500 text-xs">$${item.price.toFixed(2)} each</p>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <button onclick="changeQty('${id}', -1)" class="w-7 h-7 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-neon transition-all text-sm">-</button>
+                            <span class="font-mono text-sm w-5 text-center">${item.qty}</span>
+                            <button onclick="changeQty('${id}', 1)" class="w-7 h-7 bg-dark-card border border-dark-border rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:border-neon transition-all text-sm">+</button>
+                        </div>
+                        <div class="ml-4 text-right">
+                            <p class="font-bold text-sm">$${lineTotal}</p>
+                            <button onclick="removeFromCart('${id}')" class="text-xs text-red-500 hover:text-red-400 transition-colors">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            itemsEl.innerHTML = html;
+            totalEl.textContent = '$' + total.toFixed(2);
+            countEl.textContent = totalQty;
+        }
+
+        function openCart() {
+            document.getElementById('cart-overlay').classList.remove('hidden');
+            setTimeout(() => {
+                document.getElementById('cart-overlay').style.opacity = '1';
+                document.getElementById('cart-panel').style.transform = 'translateX(0)';
+            }, 10);
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCart() {
+            document.getElementById('cart-overlay').style.opacity = '0';
+            document.getElementById('cart-panel').style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                document.getElementById('cart-overlay').classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        function checkout() {
+            // STRIPE INTEGRATION: Replace the alert below with your Stripe Checkout redirect
+            // Example: window.location.href = 'https://checkout.stripe.com/pay/YOUR_SESSION_ID';
+            alert('Checkout integration: Connect your Stripe payment links to complete this flow.');
+        }
+
+        // ===== FAQ ACCORDION =====
+        function toggleFaq(btn) {
+            const answer = btn.nextElementSibling;
+            const chevron = btn.querySelector('.faq-chevron');
+            const isOpen = answer.classList.contains('open');
+
+            // Close all others
+            document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+            document.querySelectorAll('.faq-chevron').forEach(c => c.classList.remove('rotate'));
+
+            if (!isOpen) {
+                answer.classList.add('open');
+                chevron.classList.add('rotate');
+            }
+        }
+    </script>
 </body>
 </html>
